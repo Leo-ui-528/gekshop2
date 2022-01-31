@@ -20,7 +20,7 @@ from django.urls import path, include
 from .views import index, contacts
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
 
     path('', index, name='index'),
     path('contacts/', contacts, name='contacts'),
@@ -29,6 +29,9 @@ urlpatterns = [
     path('admin_staff/', include('adminapp.urls', namespace='admin_staff')),
     path('auth/', include('authapp.urls', namespace='auth')),
     path('basket/', include('basketapp.urls', namespace='basket')),
+    path('orders/', include('ordersapp.urls', namespace='orders')),
+
+    path('', include('social_django.urls', namespace='social')),
 ]
 
 if settings.DEBUG:
